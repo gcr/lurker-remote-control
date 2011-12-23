@@ -1,0 +1,14 @@
+{
+  "author": "gcr <gcr@sneakygcr.net> (http://sneakygcr.net)",
+  "name": "lurker-control",
+  "description": "A small control panel for Lurker",
+  "version": "0.0.0",
+  "repository": {
+    "url": ""
+  },
+  "engines": {
+    "node": "~0.6.3"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

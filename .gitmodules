@@ -1,0 +1,3 @@
+[submodule "ips-lurker"]
+	path = ips-lurker
+	url = git://github.com/gcr/ips-lurker.git
