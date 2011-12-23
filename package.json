@@ -9,6 +9,6 @@
   "engines": {
     "node": "~0.6.3"
   },
-  "dependencies": {'express': '*'},
+  "dependencies": {"express": "*"},
   "devDependencies": {}
 }
