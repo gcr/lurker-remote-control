@@ -20,15 +20,18 @@ function pollStatusEvery(time, cb) {
 }
 
 $(document).ready(function(){
+                    var current_status = null;
                     $(".activate").click(activateLurker);
                     $(".deactivate").click(deactivateLurker);
-                    pollStatusEvery(
-                      1000,
+                    pollStatusEvery(1000,
                       function(status) {
-                        $("#status_display")
-                          .text(status?"Lurker is ON":"Lurker is OFF");
+                        if (status !== current_status) {
+                          // Switch!
+                          $(".status_display")
+                            .removeClass("activated deactivated")
+                            .addClass(status? "activated" : "deactivated");
+                          console.log(status);
+                        }
+                        current_status = status;
                       });
-                    // getLurkerStatus(function(result) {
-                    //                   alert(result);
-                    //                 });
                   });

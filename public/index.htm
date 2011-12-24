@@ -8,30 +8,67 @@
     <link href='http://fonts.googleapis.com/css?family=Armata' rel='stylesheet' type='text/css'>
     <style type="text/css" media="screen">
       body {
-        text-align: center;
-        background-color: #222;
+        background-color: #000;
         color: #2e2;
         font-family: 'Armata', sans-serif;
-        font-size: 20pt;
-        margin-left: 20%;
-        margin-right: 20%;
-        margin-top: 1em;
+        margin: 0; padding: 0;
+      }
+      .wrapper {
+        width: 1324px;
+        height: 948px;
+        margin-left: auto; margin-right: auto;
+        background-image: url(BG.jpg);
+        background-repeat: no-repeat;
+        position: relative;
       }
 
-      a {
+      .status_display {
+        width: 337px;
+        height: 237px;
+        position: absolute;
+        left: 470px;
+      }
+      .status_display.deactivated {background: url(off.png);}
+      .status_display.activated {background: url(on.png);}
+
+      .button {
         text-decoration: none;
-        color: #0f0;
-        border: solid 1px #0f0;
         display: inline-block;
-        margin: 0.2em;
+        margin: 0; padding: 0;
+        width: 177px;
+        height: 88px;
+        border: none;
+      }
+      .button.activate:hover {background: url(initiate_true.png);}
+      .button.deactivate:hover {background: url(suspend_true.png);}
+      .button.activate {
+        position: absolute;
+        top: 135px;
+        left: 350px;
+        background: url(initiate_false.png);
+      }
+      .button.deactivate {
+        position: absolute;
+        top: 135px;
+        left: 780px;
+        background: url(suspend_false.png);
       }
     </style>
   </head>
   <body>
-    <h1>Lurker Control Panel</h1>
-    <div id="status_display">...</div>
-    <br />
-    <a class="button activate" href="#">Activate Lurker</a>
-    <a class="button deactivate" href="#">Dectivate Lurker</a>
+    <div class="wrapper">
+      <a class="button activate" href="#">&nbsp;</a>
+      <div class="status_display deactivated">&nbsp;</div>
+      <a class="button deactivate" href="#">&nbsp;</a>
+    </div>
+
+    <div style="display: none;" id="preload">
+      <img src="initiate_false.png"/>
+      <img src="suspend_false.png"/>
+      <img src="initiate_true.png"/>
+      <img src="suspend_true.png"/>
+      <img src="off.png"/>
+      <img src="on.png"/>
+    </div>
   </body>
 </html>
