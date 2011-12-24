@@ -20,7 +20,7 @@ LurkerCtl.prototype.deactivate = function(){
   var nonce_key = this.nonce_key = Math.random();
   var self = this;
   setTimeout(function(){
-               // Did someone else deactivate me?
+               // Did someone else deactivate me? (closure)
                if (self.nonce_key != nonce_key) { return; }
                // Process is unresponsive.
                if (self.process !== null) {

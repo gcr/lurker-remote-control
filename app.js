@@ -2,10 +2,9 @@ var express = require('express'),
     LurkerCtl = require('./lurkerctl').LurkerCtl;
 
 var lurker = new LurkerCtl(
-  "node",
-  ["main.js"],
-  {cwd: "ips-lurker"},
-  "ips-lurker/lurkerlog"
+  "node", ["main.js"],          // Command line
+  {cwd: "ips-lurker"},          // Working dir
+  "ips-lurker/lurkerlog"        // Output file
 );
 var app = express.createServer();
 
@@ -31,3 +30,9 @@ app.get('/status', function(req, res) {
         });
 
 app.listen(8004);
+
+process.on('SIGINT', function () {
+             console.log("Dying in 6s...");
+             lurker.deactivate();
+             setTimeout(process.exit, 6000);
+           });
