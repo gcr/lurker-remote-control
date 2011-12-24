@@ -13,17 +13,24 @@ app.use(express.bodyParser());
 app.use(app.router);
 app.use(express.static("public"));
 
+var last_time = 0;
+function now(){ return new Date().getTime(); }
+
 app.get('/', function(req,res) {
           res.sendfile('public/index.htm');
 });
 
 app.get('/activate', function(req, res) {
+          if ((now() - last_time) < 5) { res.send("Too fast"); return; }
           lurker.activate();
           res.send("ok");
+          last_time = now();
         });
 app.get('/deactivate', function(req, res) {
+          if ((now() - last_time) < 5) { res.send("Too fast"); return; }
           lurker.deactivate();
           res.send("ok");
+          last_time = now();
         });
 app.get('/status', function(req, res) {
           res.send({isRunning: lurker.isRunning()});
