@@ -38,8 +38,8 @@ LurkerCtl.prototype.activate = function(){
 
   var outputStream = fs.createWriteStream(this.logfilename,
                                           {flags: 'a'});
-  this.process.stdout.pipe(outputStream);
-  this.process.stderr.pipe(outputStream);
+  this.process.stdout.pipe(outputStream, {end: false});
+  this.process.stderr.pipe(outputStream, {end: false});
 
   this.process.on('exit', function(code, signal) {
                     console.log("Lurker quit");
