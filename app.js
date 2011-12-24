@@ -21,13 +21,13 @@ app.get('/', function(req,res) {
 });
 
 app.get('/activate', function(req, res) {
-          if ((now() - last_time) < 15) { res.send("Too fast"); return; }
+          if ((now() - last_time) < 5) { res.send("Too fast"); return; }
           lurker.activate();
           res.send("ok");
           last_time = now();
         });
 app.get('/deactivate', function(req, res) {
-          if ((now() - last_time) < 15) { res.send("Too fast"); return; }
+          if ((now() - last_time) < 5) { res.send("Too fast"); return; }
           lurker.deactivate();
           res.send("ok");
           last_time = now();
