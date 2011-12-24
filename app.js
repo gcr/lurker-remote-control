@@ -14,7 +14,7 @@ app.use(app.router);
 app.use(express.static("public"));
 
 var last_time = 0;
-function now(){ return new Date().getTime(); }
+function now(){ return (new Date().getTime())/1000; }
 
 app.get('/', function(req,res) {
           res.sendfile('public/index.htm');
