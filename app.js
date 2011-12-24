@@ -21,13 +21,13 @@ app.get('/', function(req,res) {
 });
 
 app.get('/activate', function(req, res) {
-          if ((now() - last_time) < 5) { res.send("Too fast"); return; }
+          if ((now() - last_time) < 15) { res.send("Too fast"); return; }
           lurker.activate();
           res.send("ok");
           last_time = now();
         });
 app.get('/deactivate', function(req, res) {
-          if ((now() - last_time) < 5) { res.send("Too fast"); return; }
+          if ((now() - last_time) < 15) { res.send("Too fast"); return; }
           lurker.deactivate();
           res.send("ok");
           last_time = now();
@@ -41,5 +41,12 @@ app.listen(8004);
 process.on('SIGINT', function () {
              console.log("Dying in 6s...");
              lurker.deactivate();
+             last_time = now();
              setTimeout(process.exit, 6000);
+           });
+
+
+process.on('uncaughtException',function(error){
+             console.log("Uncaught exception:");
+             console.log(error);
            });

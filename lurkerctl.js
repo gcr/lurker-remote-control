@@ -25,7 +25,7 @@ LurkerCtl.prototype.deactivate = function(){
                // Process is unresponsive.
                if (self.process !== null) {
                  console.log("Lurker's process is unresponsive, killing forcefully...");
-                 self.process.kill('SIGKILL'); // :o!
+                 self.process.kill('SIGTERM'); // :o!
                }
              }, 5000);
 };
