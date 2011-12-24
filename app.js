@@ -11,7 +11,7 @@ var app = express.createServer();
 app.use(express.logger());
 app.use(express.bodyParser());
 app.use(app.router);
-app.use(express.static("public"));
+app.use(express.static("public", {maxAge: 1000*60}));
 
 var last_time = 0;
 function now(){ return (new Date().getTime())/1000; }

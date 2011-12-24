@@ -30,25 +30,7 @@ $(document).ready(function(){
                           $(".status_display")
                             .removeClass("activated deactivated")
                             .addClass(status? "activated" : "deactivated");
-                          console.log(status);
                         }
                         current_status = status;
                       });
-
-                    // Preload images
-                    var images = new Array();
-		    function preload() {
-		      for (i = 0; i < preload.arguments.length; i++) {
-			images[i] = new Image();
-			images[i].src = preload.arguments[i];
-		      }
-		    }
-		    preload(
-		      "initiate_false.png",
-                      "suspend_false.png",
-		      "initiate_true.png",
-		      "suspend_true.png",
-                      "off.png",
-                      "on.png"
-		    );
                   });
